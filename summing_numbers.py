@@ -1,10 +1,12 @@
 def mysum(*nums):
-    total = 0
+    # total = 0
 
-    for num in nums:
-        total += num
+    # for num in nums:
+    #     total += num
 
-    return total
+    # return total
+
+    return sum(num for num in nums)
 
 
 print(mysum(1, 2, 3))
