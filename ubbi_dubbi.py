@@ -2,15 +2,15 @@ def ubbi_dubbi(string) -> str:
     vowels = "aeiou"
     # output = ""
 
-    # for i in string:
-    #     if i in vowels:
-    #         output += f"ub{i}"
+    # for vowel in string:
+    #     if vowel in vowels:
+    #         output += f"ub{vowel}"
     #     else:
-    #         output += i
+    #         output += vowel
 
     # return output
 
-    return "".join(f"ub{i}" if i in vowels else i for i in string)
+    return "".join(f"ub{vowel}" if vowel in vowels else vowel for vowel in string)
 
 
 print(ubbi_dubbi("octopus"))
