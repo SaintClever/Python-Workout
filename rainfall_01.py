@@ -21,11 +21,15 @@ def get_rainfall():
             f"\n{city:>8}: {rainfall:>8}"
             for city, rainfall in data.items())
         
-        if city == "":
+        if city in data:
+            rainfall = float(input("Rainfall: "))
+            data[city] = float(data[city]) + rainfall
+        
+        elif city == "":
             print("\n==== Rainfall ====", data_formated)
             break
 
-        if city != "":
+        elif city != "":
             rainfall = f"{float(input("Rainfall: ")):.2f}"
             data[city] = rainfall
 
