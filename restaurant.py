@@ -20,7 +20,7 @@ def restaurant(menu):
     total = 0
 
     while True:
-        order = input("\nOrder: ")
+        order = input("\nOrder: ").strip()
 
         if order in menu:
             print(f"{order}: ${float(menu[order]):.2f}")
