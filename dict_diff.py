@@ -18,6 +18,14 @@ def dict_diff(dic1, dic2):
 
     # return {
     #     key: [dic1.get(key), dic2.get(key)]
+    #     for key in [i for i in dic1.keys()] + [i for i in dic2.keys()]
+    #     if dic1.get(key) != dic2.get(key)
+    # }
+
+    # or
+
+    # return {
+    #     key: [dic1.get(key), dic2.get(key)]
     #     for key in dic1.keys() | dic2.keys()
     #     if dic1.get(key) != dic2.get(key)
     # }
