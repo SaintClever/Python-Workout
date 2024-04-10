@@ -21,9 +21,9 @@ def passwd_to_dict():
         file = f.readlines()
 
     for lines in file:
-        if ":" in lines:
-            key = lines.split(":")[0]
-            output[key] = lines.replace(key, "").replace("\n", "")
+        if not lines.startswith(("#", "\n")):
+            user_info = lines.split(":")
+            output[user_info[0]] = int(user_info[2])
 
     return output
 
