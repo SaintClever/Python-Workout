@@ -42,4 +42,4 @@ def word_count(file_name):
     return output
 
 
-pprint(word_count("wcfile.txt"))
+pprint(word_count("docs/wcfile.txt"))

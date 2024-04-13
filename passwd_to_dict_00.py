@@ -17,7 +17,7 @@ The function passwd_to_dict should return a dict based on /etc/passwd in  which 
 def passwd_to_dict():
     output = {}
 
-    with open("passwd/passwd.txt") as f:
+    with open("docs/passwd.txt") as f:
         file = f.readlines()
 
     for lines in file:

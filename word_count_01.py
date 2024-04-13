@@ -35,4 +35,4 @@ def wordcount(filename):
             print(f"{key}: {value}")
 
 
-wordcount("wcfile.txt")
+wordcount("docs/wcfile.txt")
