@@ -8,60 +8,40 @@ If you don't have any text files that you can use for this exercise, you can dow
 NOTE: There are several ways to solve this problem. If you already know how  to use comprehensions, and particularly dict comprehensions, then that's  probably the most Pythonic approach. But if you aren't yet comfortable with  them, and would prefer not to jump to read about them in chapter 7, then no  worries—you can use a traditional for loop, and you'll be just fine.
 """
 
-import pprint, os, string
-
-
-def find_longest_word(file):
-    with open("books/43-0.txt") as f:
-        file = f.read()
-
-        words = "".join(i for i in file if i not in string.punctuation).split()
-
-        word, count = "", 0
-        for wrd in words:
-            if (
-                len(wrd) > count
-                and "http" not in wrd
-                and "www" not in wrd
-                and "—" not in wrd
-            ):
-                count = len(wrd)
-                word = wrd
-
-        return {word: count}
+import pprint, os
 
 
 def find_all_longest_words(dir):
-    books = {}
+    output = {}
 
-    for root, dirs, files in os.walk(dir):
+    # Get file paths and extract content of files into book dict
+    for root, _, files in os.walk(dir):
         for file in files:
             with open(root + file) as f:
-                fs = f.read()
-                books[file] = fs
+                books = f.read()
 
-    for key, value in books.items():
-        words = "".join(i for i in value).split()
+                # Loop thru book content and sanitize words
+                words = "".join(i for i in books).split()
 
-        count = 0
-        for word in words:
-            if (
-                len(word) > count
-                and "http" not in word
-                and "www" not in word
-                and "trademark" not in word
-                and "-" not in word
-                and "_" not in word
-                and "@" not in word
-                and "&" not in word
-                and "?—" not in word
-                # and "—" not in word
-            ):
-                count = len(word)
-                books[key] = word
+                # Sanitize words
+                count = 0
+                for word in words:
+                    if (
+                        len(word) > count
+                        and "http" not in word
+                        and "www" not in word
+                        and "trademark" not in word
+                        and "-" not in word
+                        and "_" not in word
+                        and "@" not in word
+                        and "&" not in word
+                        and "?—" not in word
+                        and "—" not in word
+                    ):
+                        count = len(word)
+                        output[file] = [{word: count}]
 
-    return books
+    return output
 
 
-print(find_longest_word("books/43-0.txt"))
 pprint.pprint(find_all_longest_words("books/"))
