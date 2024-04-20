@@ -22,4 +22,4 @@ def passwd_to_csv(input_txt, output_csv):
     return f"\nFile: {output_csv}\n"
 
 
-print(passwd_to_csv("docs/passwd.txt", "docs/file.csv"))
+print(passwd_to_csv("docs/passwd.txt", "docs/file_00.csv"))
